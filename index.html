@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbix Official - Jasa Digital & Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            padding: 20px 0;
+            border-bottom: 2px solid #3b82f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #3b82f6;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .wa-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .wa-contact:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            background: radial-gradient(circle at top right, #1e3a8a, transparent 50%),
+                        radial-gradient(circle at bottom left, #1e40af, transparent 50%);
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #cbd5e1;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-buy {
+            background: linear-gradient(to right, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        
+        .cta-sell {
+            background: linear-gradient(to right, #10b981, #059669);
+            color: white;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.5);
+        }
+        
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #60a5fa;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #f8fafc;
+        }
+        
+        .product-desc {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .product-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .product-btn:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Payment Section */
+        .payment-section {
+            padding: 60px 0;
+            background-color: #1e293b;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+        
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .payment-option {
+            background-color: #0f172a;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
+            border: 1px solid #334155;
+        }
+        
+        .payment-icon {
+            font-size: 2rem;
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #334155;
+            margin-top: 60px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            color: #94a3b8;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid #3b82f6;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+        
+        .modal-title {
+            margin-bottom: 20px;
+            color: #f8fafc;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+        
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: #f1f5f9;
+            font-size: 1rem;
+        }
+        
+        .modal-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .modal-btn:hover {
+            background-color: #2563eb;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Orbix Official</h1>
+                        <p>Jasa Digital & Tools Terpercaya</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone-alt"></i> +63 930 270 7480</p>
+                    <p><i class="fas fa-envelope"></i> @orbix.official.com</p>
+                    <a href="https://wa.me/639302707480" class="wa-contact" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Hubungi WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Solusi Digital untuk Kebutuhan Anda</h2>
+            <p>Kami menyediakan berbagai jasa digital dan tools berkualitas untuk membantu bisnis dan proyek Anda berkembang. Dari pembuatan website hingga tools khusus, semua tersedia di Orbix Official.</p>
+            
+            <div class="cta-buttons">
+                <button class="cta-btn cta-buy" id="openBuyModal">
+                    <i class="fas fa-shopping-cart"></i> Beli Produk/Jasa
+                </button>
+                <button class="cta-btn cta-sell" id="openSellModal">
+                    <i class="fas fa-dollar-sign"></i> Jual Produk ke Admin
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Produk & Layanan Kami</h2>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="product-title">Jasa Bikin Website</h3>
+                    <p class="product-desc">Pembuatan website responsif, modern, dan SEO-friendly untuk bisnis, portfolio, atau toko online.</p>
+                    <button class="product-btn" data-product="Jasa Bikin Website">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="product-title">Jasa Bikin App/APK</h3>
+                    <p class="product-desc">Development aplikasi mobile Android & iOS sesuai kebutuhan bisnis atau personal Anda.</p>
+                    <button class="product-btn" data-product="Jasa Bikin App/APK">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="product-title">Design</h3>
+                    <p class="product-desc">Jasa desain grafis, UI/UX, logo, banner, dan berbagai kebutuhan desain lainnya.</p>
+                    <button class="product-btn" data-product="Jasa Design">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="product-title">Tools</h3>
+                    <p class="product-desc">Berbagai tools digital untuk membantu pekerjaan dan bisnis Anda lebih efisien.</p>
+                    <button class="product-btn" data-product="Tools">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="product-title">Source Code (SC)</h3>
+                    <p class="product-desc">Source code aplikasi, website, dan sistem siap pakai dengan dokumentasi lengkap.</p>
+                    <button class="product-btn" data-product="Source Code (SC)">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="product-title">APK Bug</h3>
+                    <p class="product-desc">APK dengan bug atau fitur khusus untuk keperluan tertentu (Pakai dengan bijak jangan bug sana sini)</p>
+                    <button class="product-btn" data-product="APK Bug">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="product-title">Hosting & Domain</h3>
+                    <p class="product-desc">Layanan hosting cepat dan domain premium dengan harga terjangkau (Lewat github,dll).</p>
+                    <button class="product-btn" data-product="Hosting & Domain">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="product-title">Konsultasi IT</h3>
+                    <p class="product-desc">Konsultasi masalah IT, pemilihan teknologi, dan solusi digital untuk bisnis Anda.</p>
+                    <button class="product-btn" data-product="Konsultasi IT">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <h2 class="section-title">Metode Pembayaran</h2>
+            <div class="payment-options">
+                <div class="payment-option">
+                    <div class="payment-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Customer (No Seri)</h3>
+                    <p>Bayar dengan nomor seri customer</p>
+                </div>
+                
+                <div class="payment-option">
+                    <div class="payment-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Bisnis</h3>
+                    <p>Transfer via WhatsApp Business</p>
+                </div>
+                
+                <div class="payment-option">
+                    <div class="payment-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Dompet Digital</h3>
+                    <p>E-wallet & pembayaran online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fas fa-cube"></i>
+            </div>
+            <p>Solusi digital terpercaya untuk semua kebutuhan Anda</p>
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> +63 930 270 7480</p>
+                <p><i class="fas fa-envelope"></i> orbix@official.com</p>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Orbix Official. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal untuk Pembelian -->
+    <div class="modal" id="buyModal">
+        <div class="modal-content">
+            <div class="close-modal" id="closeBuyModal">&times;</div>
+            <h2 class="modal-title">Beli Produk/Jasa</h2>
+            <form id="buyForm">
+                <div class="form-group">
+                    <label for="productSelect">Pilih Produk/Jasa:</label>
+                    <select id="productSelect" required>
+                        <option value="">-- Pilih Produk --</option>
+                        <option value="Jasa Bikin Website">Jasa Bikin Website</option>
+                        <option value="Jasa Bikin App/APK">Jasa Bikin App/APK</option>
+                        <option value="Jasa Design">Jasa Design</option>
+  option value="Tools">Tools</option>
+                        <option value="Source Code (SC)">Source Code (SC)</option>
+                        <option value="APK Bug">APK Bug</option>
+                        <option value="Hosting & Domain">Hosting & Domain</option>
+                        <option value="Konsultasi IT">Konsultasi IT</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paymentMethod">Metode Pembayaran:</label>
+                    <select id="paymentMethod" required>
+                        <option value="">-- Pilih Metode --</option>
+                        <option value="Customer (No Seri)">Customer (No Seri)</option>
+                        <option value="WhatsApp Bisnis">WhatsApp Bisnis</option>
+                        <option value="Dompet Digital">Dompet Digital</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="modal-btn">
+                    <i class="fab fa-whatsapp"></i> Lanjut ke WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal untuk Penjualan -->
+    <div class="modal" id="sellModal">
+        <div class="modal-content">
+            <div class="close-modal" id="closeSellModal">&times;</div>
+            <h2 class="modal-title">Jual Produk ke Admin</h2>
+            <form id="sellForm">
+                <div class="form-group">
+                    <label for="productSell">Produk yang ingin dijual:</label>
+                    <select id="productSell" required>
+                        <option value="">-- Pilih Produk --</option>
+                        <option value="APK Bug">APK Bug</option>
+                        <option value="Source Code (SC)">Source Code (SC)</option>
+                        <option value="Tools">Tools</option>
+                        <option value="Jasa Bikin Website">Jasa Bikin Website</option>
+                        <option value="Jasa Bikin App/APK">Jasa Bikin App/APK</option>
+                        <option value="Design">Design</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDetails">Detail Produk (opsional):</label>
+                    <input type="text" id="productDetails" placeholder="Deskripsi singkat produk...">
+                </div>
+                
+                <button type="submit" class="modal-btn">
+                    <i class="fab fa-whatsapp"></i> Hubungi Admin via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Fungsi untuk mendapatkan salam berdasarkan waktu
+        function getGreeting() {
+            const hour = new Date().getHours();
+            
+            if (hour >= 5 && hour < 12) {
+                return "Selamat pagi";
+            } else if (hour >= 12 && hour < 15) {
+                return "Selamat siang";
+            } else if (hour >= 15 && hour < 19) {
+                return "Selamat sore";
+            } else {
+                return "Selamat malam";
+            }
+        }
+        
+        // Fungsi untuk menghasilkan nomor seri acak
+        function generateSerialNumber() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let serial = '';
+            for (let i = 0; i < 10; i++) {
+                serial += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return serial;
+        }
+        
+        // Fungsi untuk mengirim pesan WhatsApp (pembelian)
+        function sendWhatsAppBuy(product, paymentMethod) {
+            const greeting = getGreeting();
+            const serialNumber = generateSerialNumber();
+            const phoneNumber = "639302707480";
+            
+            let message = `Halo, ${greeting}%0A`;
+            message += `Mimin Orbix%0A`;
+            message += `Saya ingin membeli produk: ${product}%0A`;
+            message += `Mohon di proses ya%0A`;
+            message += `Bayar lewat: ${paymentMethod}%0A`;
+            
+            if (paymentMethod === "Customer (No Seri)") {
+                message += `#Customer ${serialNumber}`;
+            }
+            
+            const url = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(url, '_blank');
+        }
+        
+        // Fungsi untuk mengirim pesan WhatsApp (penjualan)
+        function sendWhatsAppSell(product, details = "") {
+            const greeting = getGreeting();
+            const phoneNumber = "639302707480";
+            
+            let message = `Halo Mimin Orbix%0A`;
+            message += `saya ingin menjual produk: ${product}%0A`;
+            
+            if (details) {
+                message += `Detail: ${details}`;
+            }
+            
+            const url = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(url, '_blank');
+        }
+        
+        // Event Listeners untuk modal pembelian
+        document.getElementById('openBuyModal').addEventListener('click', function() {
+            document.getElementById('buyModal').style.display = 'flex';
+        });
+        
+        document.getElementById('closeBuyModal').addEventListener('click', function() {
+            document.getElementById('buyModal').style.display = 'none';
+        });
+        
+        // Event Listeners untuk modal penjualan
+        document.getElementById('openSellModal').addEventListener('click', function() {
+            document.getElementById('sellModal').style.display = 'flex';
+        });
+        
+        document.getElementById('closeSellModal').addEventListener('click', function() {
+            document.getElementById('sellModal').style.display = 'none';
+        });
+        
+        // Form submission untuk pembelian
+        document.getElementById('buyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const product = document.getElementById('productSelect').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            
+            if (!product || !paymentMethod) {
+                alert('Silakan pilih produk dan metode pembayaran');
+                return;
+            }
+            
+            sendWhatsAppBuy(product, paymentMethod);
+            document.getElementById('buyModal').style.display = 'none';
+            document.getElementById('buyForm').reset();
+        });
+        
+        // Form submission untuk penjualan
+        document.getElementById('sellForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const product = document.getElementById('productSell').value;
+            const details = document.getElementById('productDetails').value;
+            
+            if (!product) {
+                alert('Silakan pilih produk yang ingin dijual');
+                return;
+            }
+            
+            sendWhatsAppSell(product, details);
+            document.getElementById('sellModal').style.display = 'none';
+            document.getElementById('sellForm').reset();
+        });
+        
+        // Event listeners untuk tombol beli langsung pada produk
+        document.querySelectorAll('.product-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.getAttribute('data-product');
+                
+                // Set nilai produk di modal
+                document.getElementById('productSelect').value = product;
+                
+                // Tampilkan modal pembelian
+                document.getElementById('buyModal').style.display = 'flex';
+            });
+        });
+        
+        // Tutup modal saat klik di luar konten modal
+        window.addEventListener('click', function(e) {
+            if (e.target.id === 'buyModal') {
+                document.getElementById('buyModal').style.display = 'none';
+            }
+            if (e.target.id === 'sellModal') {
+                document.getElementById('sellModal').style.display = 'none';
+            }
+        });
+        
+        // Inisialisasi nomor seri saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Orbix Official Website Loaded");
+            console.log("Nomor WhatsApp: +63 930 270 7480");
+        });
+    </script>
+</body>
+</html>
