@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPSILON Store - Marketplace Digital Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-red: #e63946;
+            --primary-white: #f1faee;
+            --primary-black: #1d3557;
+            --secondary-red: #a4161a;
+            --secondary-white: #ffffff;
+            --accent: #ffd166;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary-black) 0%, #0d1b2a 100%);
+            color: var(--primary-white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(29, 53, 87, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--primary-red);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .animated-logo {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .epsilon-symbol {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-red);
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.7);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-white);
+        }
+        
+        .logo-text span {
+            color: var(--primary-red);
+        }
+        
+        .cta-button {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary-red);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(230, 57, 70, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(29, 53, 87, 0.8) 0%, rgba(13, 27, 42, 0.9) 100%);
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero h1 span {
+            color: var(--primary-red);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #ccc;
+        }
+        
+        .whatsapp-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-white);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-red);
+        }
+        
+        .product-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--accent));
+        }
+        
+        .product-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+        
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-white);
+        }
+        
+        .product-card p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .buy-button {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .buy-button:hover {
+            background-color: var(--secondary-red);
+        }
+        
+        /* Featured Banner */
+        .featured-banner {
+            background: linear-gradient(90deg, var(--primary-red), var(--secondary-red));
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(230, 57, 70, 0.3);
+        }
+        
+        .featured-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(13, 27, 42, 0.95);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+            border-top: 2px solid var(--primary-red);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-white);
+        }
+        
+        .footer-logo span {
+            color: var(--primary-red);
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-red);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-red);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .featured-banner h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--primary-black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-red);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-red);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="animated-logo">
+                    <div class="epsilon-symbol">Σ</div>
+                </div>
+                <div class="logo-text">EPSILON <span>Store</span></div>
+            </div>
+            
+            <a href="https://wa.me/639302707480" target="_blank" class="cta-button">
+                <i class="fab fa-whatsapp"></i>
+                Pesan Sekarang
+            </a>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Marketplace <span>EPSILON Store</span></h1>
+            <p>Temukan tools digital terbaik untuk kebutuhan programming, security, dan automation dengan harga terjangkau. Kualitas premium, support responsif 24/7.</p>
+            
+            <a href="https://wa.me/639302707480" target="_blank" class="whatsapp-contact">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp: +63 930 270 7480
+            </a>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Produk & Layanan</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>APK Bug & Exploit</h3>
+                    <p>Koleksi APK dengan bug dan exploit untuk keperluan testing keamanan. Legal untuk penelitian dan edukasi.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 50K - 300K</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20APK%20Bug" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Source Code (SC)</h3>
+                    <p>Source code aplikasi, website, dan tools siap pakai. Lengkap dengan dokumentasi dan support.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 20k - 200k</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20Source%20Code" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools Digital</h3>
+                    <p>Kumpulan tools hacking, programming, automation terbaru dengan update berkala.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 75K - 750K</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20Tools%20Digital" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Starter Pack Programmer</h3>
+                    <p>Paket lengkap untuk programmer pemula: tools, template, ebook, dan source code contoh.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 30k - 300K</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20Starter%20Pack%20Programmer" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Bot WA & Telegram</h3>
+                    <p>Bot otomatis untuk WhatsApp dan Telegram dengan berbagai fitur: auto-reply, broadcast, dll.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 30k - 1.5JT</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20Bot%20WA%20%26%20Telegram" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-sim-card"></i>
+                    </div>
+                    <h3>NOKOS Legal All Negara</h3>
+                    <p>Nomor kosong (NOKOS) legal dari berbagai negara untuk registrasi aplikasi dan verifikasi.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 25K - 100K</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20NOKOS%20Legal" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Jasa Pembuatan APK</h3>
+                    <p>Jasa custom pembuatan aplikasi Android sesuai kebutuhan. Desain UI/UX modern dan fungsional.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 50k - 500k</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20Jasa%20Pembuatan%20APK" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Jasa Pembuatan Website</h3>
+                    <p>Jasa pembuatan website responsive, modern, dan SEO friendly untuk bisnis dan personal.</p>
+                    <div class="product-price">
+                        <span class="price">Rp 30k - 100k</span>
+                        <a href="https://wa.me/639302707480?text=Saya%20tertarik%20dengan%20Jasa%20Pembuatan%20Website" target="_blank" class="buy-button">Beli</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Banner -->
+            <div class="featured-banner">
+                <h2>Produk Lainnya & Custom Order</h2>
+                <p>Kami juga menyediakan berbagai produk digital lainnya seperti: VPN Premium, Crack Software, Ebook Tutorial, Dashboard Admin, Script PHP, dll.</p>
+                <p style="margin-top: 1rem; font-size: 1.2rem;">
+                    <strong>Selengkapnya langsung hubungi WhatsApp:</strong><br>
+                    <a href="https://wa.me/639302707480" target="_blank" style="color: white; text-decoration: underline;">+63 930 270 7480</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>Σ</span> EPSILON Store
+                    </div>
+                    <p>Marketplace tools digital terpercaya untuk programmer, developer, dan security enthusiast.</p>
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+63 930 270 7480</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>epsilon.store@example.com</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kategori Produk</h3>
+                    <ul>
+                        <li><a href="#">APK Bug & Exploit</a></li>
+                        <li><a href="#">Source Code</a></li>
+                        <li><a href="#">Tools Digital</a></li>
+                        <li><a href="#">Starter Pack</a></li>
+                        <li><a href="#">Bot Automation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Jasa Pembuatan APK</a></li>
+                        <li><a href="#">Jasa Pembuatan Website</a></li>
+                        <li><a href="#">Custom Script</a></li>
+                        <li><a href="#">Consultation</a></li>
+                        <li><a href="#">Bug Bounty</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 EPSILON Store. All rights reserved. | WhatsApp: +63 930 270 7480</p>
+                <p style="margin-top: 5px; font-size: 0.8rem;">Disclaimer: Produk hanya untuk keperluan edukasi dan testing legal.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Animasi untuk logo
+        const epsilonSymbol = document.querySelector('.epsilon-symbol');
+        
+        // Efek hover pada logo
+        epsilonSymbol.addEventListener('mouseover', () => {
+            epsilonSymbol.style.animation = 'pulse 0.5s infinite';
+        });
+        
+        epsilonSymbol.addEventListener('mouseout', () => {
+            epsilonSymbol.style.animation = 'pulse 2s infinite';
+        });
+        
+        // Efek scroll untuk product cards
+        const productCards = document.querySelectorAll('.product-card');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Set initial state for animation
+        productCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+        
+        // WhatsApp redirect dengan pesan default
+        const buyButtons = document.querySelectorAll('.buy-button');
+        buyButtons.forEach(button => {
+            // Pesan sudah diatur di href, jadi tidak perlu diubah
+        });
+        
+        // CTA Button animation
+        const ctaButton = document.querySelector('.cta-button');
+        setInterval(() => {
+            ctaButton.style.transform = 'translateY(-3px)';
+            setTimeout(() => {
+                ctaButton.style.transform = 'translateY(0)';
+            }, 500);
+        }, 3000);
+    </script>
+</body>
+</html>
